@@ -6,7 +6,7 @@
       "settings": {
         "clients": [
           {
-            "id": "a3b7de87-b46f-4dcf-b6ed-5bf5ebe83167",
+            "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
             "level": 0
           }
         ],
@@ -15,7 +15,7 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/ragnarservers"
+          "path": "/api/v1/stream"
         }
       }
     }
@@ -24,6 +24,23 @@
     {
       "protocol": "freedom",
       "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
     }
-  ]
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "blocked"
+      }
+    ]
+  },
+  "log": {
+    "loglevel": "warning"
+  }
 }
