@@ -1,4 +1,7 @@
 {
+  "log": {
+    "loglevel": "warning"
+  },
   "inbounds": [
     {
       "port": 8080,
@@ -7,28 +10,33 @@
         "clients": [
           {
             "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-            "level": 0
+            "flow": ""
           }
         ],
         "decryption": "none"
       },
       "streamSettings": {
         "network": "ws",
+        "security": "none",
         "wsSettings": {
-          "path": "/api/v1/stream"
+          "path": "/api/v1/stream",
+          "headers": {
+            "Host": "v2ray-igm-sg-967516263854.asia-southeast1.run.app"
+          }
         }
       }
     }
   ],
   "outbounds": [
     {
+      "tag": "direct",
       "protocol": "freedom",
       "settings": {}
     },
     {
+      "tag": "blocked",
       "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
+      "settings": {}
     }
   ],
   "routing": {
@@ -39,8 +47,5 @@
         "outboundTag": "blocked"
       }
     ]
-  },
-  "log": {
-    "loglevel": "warning"
   }
 }
